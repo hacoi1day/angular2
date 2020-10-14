@@ -4,5 +4,66 @@
 <p>Tính trạng hôn nhân: {{ user.isMarried ? 'Đã kết hôn' : 'Độc thân' }}</p>
 
 <h2>{{showInfo()}}</h2>
-<img class="img-response" src="{{ imgLink }}" alt="{{ imgLink }}" style="width: 100%;">
+<img src="{{ imgLink }}" alt="{{ imgLink }}" style="width: 100%;">
 <a href="{{ link }}">{{ textLink }}</a>
+
+<hr>
+
+<h1>Property binding</h1>
+<img [src]="imgLink" [alt]="'hình okmaid'" [width]="imgWidth">
+<hr>
+<input type="text" class="form-control" [value]="name">
+<button
+  type="button"
+  class="btn btn-primary"
+  [disabled]="isValid"
+>Đăng nhập</button>
+
+<hr>
+
+<table
+  [attr.border]="tbBorder"
+  [attr.width]="tbWidth"
+>
+  <tr>
+    <th>ID</th>
+    <th>Họ tên</th>
+    <th>Số điện thoại</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Vũ Thanh Hà</td>
+    <td>0984735879</td>
+  </tr>
+</table>
+
+<hr>
+<h2>Class binding</h2>
+<table
+  [class.table-bordered]="isBorder"
+>
+  <tr>
+    <th>ID</th>
+    <th>Họ tên</th>
+    <th>Số điện thoại</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Vũ Thanh Hà</td>
+    <td>0984735879</td>
+  </tr>
+</table>
+
+<span
+  class="badge"
+  [class.badge-danger]="isChecked === 1"
+  [class.badge-success]="isChecked !== 1"
+>Label</span>
+
+<div
+  [style.background-color]="isSpecial ? 'red' : 'cyan'"
+  [style.color]="'white'"
+  [style.font-size.px]="size"
+>
+  Lập trình Angular 4
+</div>
