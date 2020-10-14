@@ -1,0 +1,38 @@
+<h1>{{ title }}</h1>
+
+<button
+  class="btn btn-primary"
+  (click)="onClickMe($event)"
+>click me</button>
+
+<button
+  class="btn btn-primary"
+  (dblclick)="onDblClickMe($event)"
+>double click me</button>
+<hr>
+<h1>Count: {{count}}</h1>
+<button
+  class="btn btn-warning"
+  (click)="onIncrement($event)"
+>Tăng</button>
+
+<hr>
+<form action="">
+  <h3>{{ username }}</h3>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text" class="form-control" id="username"
+      (keyup)="onKeyUp($event)"
+    >
+  </div>
+</form>
+<hr>
+<h3>Name: {{ name }}</h3>
+<div class="form-group">
+  <label for="name">Name</label>
+  <input
+    type="text" class="form-control" id="name"
+    (keyup.enter)="onKeyUpEnter($event)"
+  >
+</div>
