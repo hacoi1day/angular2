@@ -1,43 +1,92 @@
-<h1 *ngIf="isShow">Họ tên: {{ username }}</h1>
-<button class="btn btn-primary" (click)="onToggle()">Toggle</button>
+<!--<h1 *ngIf="isShow">Họ tên: {{ username }}</h1>-->
+<!--<button class="btn btn-primary" (click)="onToggle()">Toggle</button>-->
 
-<hr>
+<!--<hr>-->
 
-<div class="form-check">
-  <input
-    class="form-check-input" type="radio"
-    name="rdCheck" id="rdTrue"
-    (click)="onChange(true)"
-  >
-  <label class="form-check-label" for="rdTrue">
-    Hợp lệ
-  </label>
-</div>
-<div class="form-check">
-  <input
-    class="form-check-input" type="radio"
-    name="rdCheck" id="rdFalse"
-    (click)="onChange(false)"
-  >
-  <label class="form-check-label" for="rdFalse">
-    Không hợp lệ
-  </label>
-</div>
+<!--<div class="form-check">-->
+<!--  <input-->
+<!--    class="form-check-input" type="radio"-->
+<!--    name="rdCheck" id="rdTrue"-->
+<!--    (click)="onChange(true)"-->
+<!--  >-->
+<!--  <label class="form-check-label" for="rdTrue">-->
+<!--    Hợp lệ-->
+<!--  </label>-->
+<!--</div>-->
+<!--<div class="form-check">-->
+<!--  <input-->
+<!--    class="form-check-input" type="radio"-->
+<!--    name="rdCheck" id="rdFalse"-->
+<!--    (click)="onChange(false)"-->
+<!--  >-->
+<!--  <label class="form-check-label" for="rdFalse">-->
+<!--    Không hợp lệ-->
+<!--  </label>-->
+<!--</div>-->
 
-<h3 *ngIf="isCheck; else elseBlock">Hợp lệ</h3>
-<ng-template #elseBlock>
-  <h3>Không hợp lệ</h3>
-</ng-template>
+<!--<h3 *ngIf="isCheck; else elseBlock">Hợp lệ</h3>-->
+<!--<ng-template #elseBlock>-->
+<!--  <h3>Không hợp lệ</h3>-->
+<!--</ng-template>-->
 
-<hr>
+<!--<hr>-->
 
-<div class="form-group">
-  <label>Tuổi: </label>
-  <input type="number" class="form-control" [(ngModel)]="age">
-</div>
-<ng-container *ngIf="age >= 18; else elseNotEnough">
-  <h3>Đủ tuổi</h3>
+<!--<div class="form-group">-->
+<!--  <label>Tuổi: </label>-->
+<!--  <input type="number" class="form-control" [(ngModel)]="age">-->
+<!--</div>-->
+<!--<ng-container *ngIf="age >= 18; else elseNotEnough">-->
+<!--  <h3>Đủ tuổi</h3>-->
+<!--</ng-container>-->
+<!--<ng-template #elseNotEnough>-->
+<!--  <h3>Không đủ tuổi</h3>-->
+<!--</ng-template>-->
+
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let name of names"
+  >{{ name }}</li>
+</ul>
+
+<ul class="list-group">
+  <ng-template ngFor let-name [ngForOf]="names" let-i="index" let-odd="odd">
+    <li class="list-group-item">{{ name }}</li>
+  </ng-template>
+</ul>
+
+<ng-container *ngIf="products.length > 0; else elseNoProducts">
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Giá</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr
+      *ngFor="let product of products;
+            let i = index;
+            let f = first;
+            let l = last;
+            let e = even;
+            let o = odd;
+            trackBy: myTrackByFunction"
+      [style.background-color]="f === true ? 'gray' : l === true ? 'cyan' : e === true ? 'red' : 'green'"
+    >
+      <td>{{ i + 1 }} {{ f }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }} 000 đ</td>
+    </tr>
+    </tbody>
+  </table>
 </ng-container>
-<ng-template #elseNotEnough>
-  <h3>Không đủ tuổi</h3>
+
+<ng-template #elseNoProducts>
+  <p>Không có sản phẩm nào</p>
 </ng-template>
+
+<button class="btn btn-primary"
+        (click)="onLoadData()"
+>Lấy dữ liệu</button>
