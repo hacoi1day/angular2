@@ -38,8 +38,44 @@
         <tr>
           <td>5</td>
           <td>Slice</td>
-          <td>{{ content }}</td>
-          <td>{{ content | slice:30:100 }}</td>
+          <td>{{ title }}</td>
+          <td>{{ title | slice:4:11 }}</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Slice</td>
+          <td>{{ names }}</td>
+          <td>{{ names | slice:1:3 }}</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Decimal</td>
+          <td>{{ amount }}</td>
+          <td>{{ amount | number:'5.0-3' }}</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Percent</td>
+          <td>{{ result }}</td>
+          <td>{{ result | percent:'3.1-1' }}</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Currency</td>
+          <td>{{ total }}</td>
+          <td>{{ total | currency:'USD':true:'1.3-3' }}</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Date</td>
+          <td>{{ today }}</td>
+          <td>{{ today | date:'dd/MM/y hh:mm:ss a' }}</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Json</td>
+          <td>{{ product }}</td>
+          <td>{{ product | json | uppercase | lowercase }}</td>
         </tr>
         </tbody>
       </table>
