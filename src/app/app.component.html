@@ -1,4 +1,53 @@
-<h1>
-  Chào mừng đến với khóa học lập trình angular 4
-</h1>
-<app-hello></app-hello>
+<div class="container-fluid p-4">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th width="10%">Pipe</th>
+          <th width="40%">Input</th>
+          <th width="40%">Output</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>FormatData</td>
+          <td>{{ content }}</td>
+          <td>{{ content | FormatData:10:50 }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><input type="text" class="form-control" [(ngModel)]="idFilter"></td>
+          <td><input type="text" class="form-control" [(ngModel)]="nameFilter"></td>
+          <td>
+            <select class="form-control" [(ngModel)]="statusFilter">
+              <option value="null" selected>Status</option>
+              <option value="true">Active</option>
+              <option value="false">Deactive</option>
+            </select>
+          </td>
+        </tr>
+        <tr *ngFor="let product of products | filter:idFilter:nameFilter:statusFilter">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.status ? 'Active' : 'Deactive' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -2,15 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './components/hello/hello.component';
+import { FormatDataPipe } from './pipes/format-data.pipe';
+import {FormsModule} from "@angular/forms";
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent
+    FormatDataPipe,
+    FilterPipe,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
