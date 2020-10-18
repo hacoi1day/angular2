@@ -59,6 +59,25 @@ export class StructuralComponent implements OnInit {
     }
   ];
 
+  public users: any[] = [
+    {
+      name: 'John Smith',
+      country: 'USA'
+    },
+    {
+      name: 'Havt',
+      country: 'VN'
+    },
+    {
+      name: 'David',
+      country: 'England'
+    },
+    {
+      name: 'John Wick',
+      country: 'USA'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

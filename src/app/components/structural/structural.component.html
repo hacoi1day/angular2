@@ -42,51 +42,84 @@
 <!--  <h3>Không đủ tuổi</h3>-->
 <!--</ng-template>-->
 
+<!--<ul class="list-group">-->
+<!--  <li-->
+<!--    class="list-group-item"-->
+<!--    *ngFor="let name of names"-->
+<!--  >{{ name }}</li>-->
+<!--</ul>-->
+
+<!--<ul class="list-group">-->
+<!--  <ng-template ngFor let-name [ngForOf]="names" let-i="index" let-odd="odd">-->
+<!--    <li class="list-group-item">{{ name }}</li>-->
+<!--  </ng-template>-->
+<!--</ul>-->
+
+<!--<ng-container *ngIf="products.length > 0; else elseNoProducts">-->
+<!--  <table class="table table-bordered table-hover">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>ID</th>-->
+<!--      <th>Tên</th>-->
+<!--      <th>Giá</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr-->
+<!--      *ngFor="let product of products;-->
+<!--            let i = index;-->
+<!--            let f = first;-->
+<!--            let l = last;-->
+<!--            let e = even;-->
+<!--            let o = odd;-->
+<!--            trackBy: myTrackByFunction"-->
+<!--      [style.background-color]="f === true ? 'gray' : l === true ? 'cyan' : e === true ? 'red' : 'green'"-->
+<!--    >-->
+<!--      <td>{{ i + 1 }} {{ f }}</td>-->
+<!--      <td>{{ product.name }}</td>-->
+<!--      <td>{{ product.price }} 000 đ</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</ng-container>-->
+
+<!--<ng-template #elseNoProducts>-->
+<!--  <p>Không có sản phẩm nào</p>-->
+<!--</ng-template>-->
+
+<!--<button class="btn btn-primary"-->
+<!--        (click)="onLoadData()"-->
+<!--&gt;Lấy dữ liệu</button>-->
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let user of users">
+    <span class="text-danger" *ngIf="user.country === 'VN'">
+      {{ user.name }} - {{ user.country }}
+    </span>
+    <span class="text-primary" *ngIf="user.country === 'USA'">
+      {{ user.name }} - {{ user.country }}
+    </span>
+    <span *ngIf="user.country !== 'USA' && user.country !== 'VN'">
+      {{ user.name }} - {{ user.country }}
+    </span>
+  </li>
+</ul>
+<hr>
+<h3>Switch Case</h3>
 <ul class="list-group">
   <li
     class="list-group-item"
-    *ngFor="let name of names"
-  >{{ name }}</li>
+    *ngFor="let user of users"
+    [ngSwitch]="user.country"
+  >
+    <span class="text-danger" *ngSwitchCase="'VN'">
+      {{ user.name }} - {{ user.country }}
+    </span>
+    <span class="text-primary" *ngSwitchCase="'USA'">
+      {{ user.name }} - {{ user.country }}
+    </span>
+    <span *ngSwitchDefault>
+      {{ user.name }} - {{ user.country }}
+    </span>
+  </li>
 </ul>
-
-<ul class="list-group">
-  <ng-template ngFor let-name [ngForOf]="names" let-i="index" let-odd="odd">
-    <li class="list-group-item">{{ name }}</li>
-  </ng-template>
-</ul>
-
-<ng-container *ngIf="products.length > 0; else elseNoProducts">
-  <table class="table table-bordered table-hover">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Tên</th>
-      <th>Giá</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr
-      *ngFor="let product of products;
-            let i = index;
-            let f = first;
-            let l = last;
-            let e = even;
-            let o = odd;
-            trackBy: myTrackByFunction"
-      [style.background-color]="f === true ? 'gray' : l === true ? 'cyan' : e === true ? 'red' : 'green'"
-    >
-      <td>{{ i + 1 }} {{ f }}</td>
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }} 000 đ</td>
-    </tr>
-    </tbody>
-  </table>
-</ng-container>
-
-<ng-template #elseNoProducts>
-  <p>Không có sản phẩm nào</p>
-</ng-template>
-
-<button class="btn btn-primary"
-        (click)="onLoadData()"
->Lấy dữ liệu</button>
