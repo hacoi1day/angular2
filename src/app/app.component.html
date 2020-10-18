@@ -1,15 +1,23 @@
 <div class="container" [style.margin.px]="30">
   <div class="row">
     <div class="col-sm-6">
+      <h5>Dữ liệu từ Child Component :</h5>
+      <p>Fullname: {{ txtFullName }}</p>
+      <p>Address: {{ txtAddress }}</p>
       <app-child
         married="{{ isMarried }}"
         age="{{ age }}"
         [name]="'havt'"
+        (txtFullName)="onGetFullName($event)"
+        (txtAddress)="onGetAddress($event)"
+        (user)="onGetUser($event)"
       ></app-child>
     </div>
     <div class="col-sm-6">
       <user-list
         [users]="users"
+        [fullname]="txtFullName"
+        [address]="txtAddress"
       ></user-list>
     </div>
   </div>

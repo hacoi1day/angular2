@@ -11,6 +11,9 @@ export class AppComponent {
   public isMarried: boolean = true;
   public age: number = 22;
 
+  public txtFullName: string = '';
+  public txtAddress: string = '';
+
   public users: any[] = [
     {
       id: 1,
@@ -23,5 +26,20 @@ export class AppComponent {
       address: 'Thai Nguyen'
     }
   ];
+
+  onGetFullName(value: string): void {
+    this.txtFullName = value;
+  }
+
+  onGetAddress(address: string): void {
+    this.txtAddress = address;
+  }
+
+  onGetUser(user: object): void {
+    let newId = this.users[this.users.length-1].id + 1;
+    // @ts-ignore
+    user.id = newId;
+    this.users.push(user);
+  }
 
 }

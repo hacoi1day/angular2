@@ -8,8 +8,11 @@ import {Component, Input, OnInit} from '@angular/core';
 export class UserListComponent implements OnInit {
 
   @Input('users') users: any[] = [];
+  @Input('fullname') fullname: string;
+  @Input('address') address: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
 
