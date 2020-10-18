@@ -1,4 +1,16 @@
-<h1>
-  Chào mừng đến với khóa học lập trình angular 4
-</h1>
-<app-hello></app-hello>
+<div class="container" [style.margin.px]="30">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-child
+        married="{{ isMarried }}"
+        age="{{ age }}"
+        [name]="'havt'"
+      ></app-child>
+    </div>
+    <div class="col-sm-6">
+      <user-list
+        [users]="users"
+      ></user-list>
+    </div>
+  </div>
+</div>
