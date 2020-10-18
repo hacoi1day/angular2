@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'Lesson 01 - Component';
+  public content: string = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`;
+  public name: string = 'lương đình của';
 }
