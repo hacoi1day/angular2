@@ -4,8 +4,8 @@
       <table class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th>Đầu vào</th>
-          <th>Kết quả</th>
+          <th width="50%">Đầu vào</th>
+          <th width="50%">Kết quả</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +22,14 @@
             <p>{{ arrNumber }}</p>
           </td>
           <td>{{ arrNumber | sortNumber:sortValue }}</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" name="name" class="form-control" [(ngModel)]="name">
+          </td>
+          <td>
+            {{ name | capitalize }}
+          </td>
         </tr>
         </tbody>
       </table>

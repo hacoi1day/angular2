@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public arrNumber: number[] = [1, 3, 2, 4 ,7];
-  public sortValue = 1;
+  public sortValue: number = 1;
+
+  public name: string = '';
 
   onHandleSort(value: number): void {
     this.sortValue = value;
