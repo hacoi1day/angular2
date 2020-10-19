@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'Lesson 01 - Component';
+  public arrNumber: number[] = [1, 3, 2, 4 ,7];
+  public sortValue = 1;
+
+  onHandleSort(value: number): void {
+    this.sortValue = value;
+  }
 }
