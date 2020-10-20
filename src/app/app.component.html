@@ -1,0 +1,23 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h6 [style.margin.px]="0">Template Ref</h6>
+        </div>
+        <div class="card-body">
+          <input type="text" class="form-control" ref-txtName>
+          <button
+            class="btn btn-primary mt-2"
+            (click)="onGetData(txtName.value)"
+          >Lấy dữ liệu</button>
+
+          <button
+            class="btn btn-success mt-2"
+            (click)="onGetDataComponent()"
+          >Lấy dữ liệu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

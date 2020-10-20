@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'Lesson 01 - Component';
+
+  @ViewChild('txtName') name: ElementRef;
+
+  onGetData(txtName): void {
+    console.log(txtName);
+  }
+
+  onGetDataComponent(): void {
+    console.log(this.name.nativeElement.value);
+  }
 }
