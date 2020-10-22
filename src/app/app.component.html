@@ -1,16 +1,53 @@
 <div class="container p-4">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
       <div class="card">
         <div class="card-header">{{ title }}</div>
         <div class="card-body">
           <ng-container *ngIf="isShowing">
-            <app-lifecycle-hook></app-lifecycle-hook>
+            <app-lifecycle-hook
+              [total]="amount"
+            ></app-lifecycle-hook>
           </ng-container>
           <button
             class="btn btn-primary"
+            [style.margin-top.px]="20"
             (click)="onToggle()"
           >Toggle</button>
+          <hr>
+          <div class="form-group">
+            <label>Số thứ 1:</label>
+            <input type="number" class="form-control" [(ngModel)]="a">
+          </div>
+          <div class="form-group">
+            <label>Số thứ 2:</label>
+            <input type="number" class="form-control" [(ngModel)]="b">
+          </div>
+          <button class="btn btn-success" (click)="calcAmount()">Tính tổng</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">{{ title }}</div>
+        <div class="card-body">
+          <app-other-lifecycle>
+            <h1>Value: ABCDEF</h1>
+            <h2>Value: h2 tag</h2>
+            <div class="my-class">
+              <h3>h3 tag</h3>
+            </div>
+            <h4 id="myId">Value: h4 tag</h4>
+            <h5>Value: h5 tag</h5>
+            <h5>Value: h5 tag 2</h5>
+            <div myAttr>
+              This is my div tag
+            </div>
+            <span course="angular4">
+              Angular 4
+            </span>
+            <p handsome demo>You are handsome</p>
+          </app-other-lifecycle>
         </div>
       </div>
     </div>

@@ -1,12 +1,17 @@
-import {Component, OnInit, OnChanges, OnDestroy, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, OnDestroy, SimpleChanges, DoCheck, Input} from '@angular/core';
 
 @Component({
   selector: 'app-lifecycle-hook',
   templateUrl: './lifecycle-hook.component.html',
   styleUrls: ['./lifecycle-hook.component.css']
 })
-export class LifecycleHookComponent implements OnInit, OnChanges, OnDestroy {
+export class LifecycleHookComponent implements OnInit, OnChanges, OnDestroy, DoCheck {
 
+  @Input('total') total: number;
+
+  public prevTotal: number;
+
+  public title: string = 'LifecycleHookComponent';
   public products: any[] = [];
 
   constructor() {
@@ -25,11 +30,16 @@ export class LifecycleHookComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChange: LifeCycleHookComponent');
+    console.log('ngOnChange: LifeCycleHookComponent', changes);
+    this.prevTotal = changes.total.previousValue;
   }
 
   ngOnDestroy() {
     console.log('ngOnDestroy: LifeCycleHookComponent');
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck: LifeCycleHookComponent');
   }
 
 }

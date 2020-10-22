@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">{{ title }}</div>
+  <div class="card-body">
+    <h6>Tìm hiểu về ng-content</h6>
+    <ng-content></ng-content>
+    <hr>
+    <ng-content select=".my-class"></ng-content>
+    <hr>
+    <ng-content select="#myId"></ng-content>
+    <hr>
+    <ng-content select="h5"></ng-content>
+    <hr>
+    <ng-content select="[myAttr]"></ng-content>
+    <hr>
+    <ng-content select="[course=angular4]"></ng-content>
+    <hr>
+<!--    <ng-content select="[handsome]"></ng-content>-->
+    <hr>
+    <h5>Multi Attribute</h5>
+    <ng-content select="[handsome][demo]"></ng-content>
+  </div>
+</div>
