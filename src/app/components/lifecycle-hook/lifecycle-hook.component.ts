@@ -11,11 +11,11 @@ export class LifecycleHookComponent implements OnInit, OnChanges, OnDestroy, DoC
 
   public prevTotal: number;
 
-  public title: string = 'LifecycleHookComponent';
+  // public title: string = 'LifecycleHookComponent';
   public products: any[] = [];
 
   constructor() {
-    console.log('Constructor: LifecycleHookComponent');
+    // console.log('Constructor: LifecycleHookComponent');
     this.products = [
       {
         id: 1,
@@ -26,20 +26,20 @@ export class LifecycleHookComponent implements OnInit, OnChanges, OnDestroy, DoC
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit: LifeCycleHookComponent');
+    // console.log('ngOnInit: LifeCycleHookComponent');
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChange: LifeCycleHookComponent', changes);
+    // console.log('ngOnChange: LifeCycleHookComponent', changes);
     this.prevTotal = changes.total.previousValue;
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy: LifeCycleHookComponent');
+    // console.log('ngOnDestroy: LifeCycleHookComponent');
   }
 
   ngDoCheck() {
-    console.log('ngDoCheck: LifeCycleHookComponent');
+    // console.log('ngDoCheck: LifeCycleHookComponent');
   }
 
 }
