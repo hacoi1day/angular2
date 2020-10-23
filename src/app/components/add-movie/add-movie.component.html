@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header text-white bg-primary">
+    <h6>Thêm - Sửa phim</h6>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label for="name">Tên phim</label>
+        <input type="text" class="form-control" id="name" name="name" #name>
+      </div>
+      <div class="form-group">
+        <label for="link">Đường dẫn</label>
+        <input type="text" class="form-control" id="link" name="link" #link>
+      </div>
+      <div class="form-group">
+        <label for="author">Tác giả</label>
+        <input type="text" class="form-control" id="author" name="author" #author>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="addMovie(name.value, link.value, author.value)">Thêm</button>
+      </div>
+    </form>
+  </div>
+</div>

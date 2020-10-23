@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header text-white bg-success">
+    <h6>Danh sách phim</h6>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Link</th>
+        <th>Author</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let movie of movies; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ movie.name }}</td>
+        <td>
+          <a href="{{ movie.link }}">{{ movie.link }}</a>
+        </td>
+        <td>{{ movie.author }}</td>
+      </tr>
+      </tbody>
+    </table>
+    {{ movies | json }}
+  </div>
+</div>
