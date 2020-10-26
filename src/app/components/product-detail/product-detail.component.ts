@@ -46,14 +46,15 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   onBackToList(): void {
     // this._router.navigate(['products/list']);
-    this._router.navigate(['list'], {
-      relativeTo: this._activatedRoute.parent // http://localhost:4200/products + /list
-    });
+    // this._router.navigate(['list'], {
+    //   relativeTo: this._activatedRoute.parent // http://localhost:4200/products + /list
+    // });
+    this._router.navigate(['products']);
   }
 
   onEdit(): void {
-    let id = this._activatedRoute.snapshot.params.id;
-    this._router.navigate([`${id}/edit`], {
+    // let id = this._activatedRoute.snapshot.params.id;
+    this._router.navigate([`edit`], {
       relativeTo: this._activatedRoute.parent
     });
   }

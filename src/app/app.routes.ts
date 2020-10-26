@@ -11,14 +11,13 @@ import {ProductEditComponent} from "./components/product-edit/product-edit.compo
 export const appRoutes : Routes = [
   // { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '', component: HomeComponent },
+  { path: 'products', component: ProductListComponent },
   {
-    path: 'products',
+    path: 'product/:id',
     component: ProductsComponent,
     children: [
-      { path: '', redirectTo: '/products/list', pathMatch: 'full'},
-      { path: 'list', component: ProductListComponent },
-      { path: ':id', component: ProductDetailComponent },
-      { path: ':id/edit', component: ProductEditComponent },
+      { path: '', component: ProductDetailComponent },
+      { path: 'edit', component: ProductEditComponent },
     ]
   },
   // { path: 'products/:id', component: ProductDetailComponent },

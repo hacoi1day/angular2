@@ -16,6 +16,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import {FormsModule} from "@angular/forms";
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import {CommonModule} from "@angular/common";
 
 
 
@@ -34,9 +35,10 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
     ProductEditComponent,
   ],
     imports: [
-        BrowserModule,
-        RouterModule.forRoot(appRoutes),
-        FormsModule,
+      BrowserModule,
+      RouterModule.forRoot(appRoutes),
+      FormsModule,
+      CommonModule,
     ],
   providers: [
     ProductService

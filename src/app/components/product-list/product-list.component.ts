@@ -28,7 +28,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       this.name = name;
       this.price = price;
       this.products = this._productService.getAllProducts(name, price);
-    })
+    });
   }
 
   ngOnDestroy(): void {
@@ -38,7 +38,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   onSearch(): void {
-    this._router.navigate(['/products/list'], {
+    this._router.navigate(['/products'], {
       queryParams: {
         name: this.name ? this.name : '',
         price: this.price ? this.price : ''

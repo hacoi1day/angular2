@@ -35,12 +35,12 @@
   <tr *ngFor="let product of products; let i = index">
     <td>{{ i+1 }}</td>
     <td>
-      <a routerLink="/products/{{ product.id }}">{{ product.name }}</a>
+      <a routerLink="/product/{{ product.id }}">{{ product.name }}</a>
     </td>
     <td>{{ product.price | currency:'VND' }}</td>
-    <td>{{ product.status }}</td>
+    <td>{{ product.status ? 'Active' : 'Deactive' }}</td>
     <td>
-      <a href="">Edit</a> / <a href="">Delete</a>
+      <a routerLink="/product/{{ product.id }}/edit">Edit</a> / <a href="">Delete</a>
     </td>
   </tr>
   </tbody>
