@@ -2,21 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductsComponent } from './components/products/products.component';
+import {appRoutes} from "./app.routes";
+import {ProductService} from "./services/product.service";
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import {FormsModule} from "@angular/forms";
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
-const appRoutes : Routes = [
-  // { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '**', component: NotFoundComponent },
-];
+
 
 @NgModule({
   declarations: [
@@ -27,12 +28,19 @@ const appRoutes : Routes = [
     ContactComponent,
     HomeComponent,
     NotFoundComponent,
+    ProductsComponent,
+    ProductDetailComponent,
+    ProductListComponent,
+    ProductEditComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes),
+        FormsModule,
+    ],
+  providers: [
+    ProductService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

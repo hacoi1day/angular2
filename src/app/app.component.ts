@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ export class AppComponent {
   public title = 'Lesson 01 - Component';
 
   constructor(
-    private _router: Router
+    private _router: Router,
   ) {
   }
 
