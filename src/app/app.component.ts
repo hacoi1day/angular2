@@ -19,7 +19,6 @@ export class AppComponent {
     //   console.log(r)
     // });
     this._router.navigateByUrl(url).then(r => {
-      console.log(r);
     });
   }
 }

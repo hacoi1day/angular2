@@ -17,6 +17,8 @@ import {FormsModule} from "@angular/forms";
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import {CommonModule} from "@angular/common";
+import { LoginComponent } from './components/login/login.component';
+import {AuthGuard} from "./services/auth.guard";
 
 
 
@@ -33,6 +35,7 @@ import {CommonModule} from "@angular/common";
     ProductDetailComponent,
     ProductListComponent,
     ProductEditComponent,
+    LoginComponent,
   ],
     imports: [
       BrowserModule,
@@ -41,7 +44,8 @@ import {CommonModule} from "@angular/common";
       CommonModule,
     ],
   providers: [
-    ProductService
+    ProductService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
