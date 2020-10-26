@@ -1,6 +1,6 @@
 <ng-container *ngIf="product; else noProduct">
   <h4>Name: {{ product.id }}</h4>
-  <h4>Name: {{ product.name }}</h4>
+  <h4>Name: {{ product.name | capitalize }}</h4>
   <h5>Price: {{ product.price | currency:'VND' }}</h5>
   <h6>Status: {{ product.status ? 'Active' : 'Deactive' }}</h6>
   <a routerLink="/products/2">Product 2</a>

@@ -15,7 +15,7 @@ export class ProductService {
     },
     {
       id: 2,
-      name: 'Samsung S20',
+      name: 'Samsung galaxy S20',
       price: 699,
       status: true
     },

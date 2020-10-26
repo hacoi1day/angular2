@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {ProductsComponent} from "./components/products/products.component";
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {ProductListComponent} from "./components/product-list/product-list.component";
@@ -8,7 +7,7 @@ import {ProductService} from "./services/product.service";
 import {AuthGuard} from "./services/guards/auth.guard";
 import {RouterModule} from "@angular/router";
 import {productRoutes} from "./product-management.routes";
-import {FormsModule} from "@angular/forms";
+import {ShareModule} from "../share/share.module";
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import {FormsModule} from "@angular/forms";
     ProductEditComponent,
   ],
   imports: [
-    CommonModule,
-    FormsModule,
+    ShareModule,
     RouterModule.forChild(productRoutes),
   ],
   providers: [
