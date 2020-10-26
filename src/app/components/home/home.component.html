@@ -1,1 +1,14 @@
 <h1>Home Component</h1>
+
+<ng-container *ngIf="showInput">
+  <div class="alert alert-danger" *ngIf="error === -1">
+    <h6>Key không chính xác</h6>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Vui lòng nhập password" #key>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success" (click)="onAccess(key.value)">Access</button>
+  </div>
+</ng-container>
+

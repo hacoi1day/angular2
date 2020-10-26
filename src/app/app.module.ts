@@ -19,6 +19,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import {CommonModule} from "@angular/common";
 import { LoginComponent } from './components/login/login.component';
 import {AuthGuard} from "./services/auth.guard";
+import {AccessGuard} from "./services/access.guard";
 
 
 
@@ -46,6 +47,7 @@ import {AuthGuard} from "./services/auth.guard";
   providers: [
     ProductService,
     AuthGuard,
+    AccessGuard,
   ],
   bootstrap: [AppComponent]
 })

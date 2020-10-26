@@ -9,14 +9,19 @@ import {ProductListComponent} from "./components/product-list/product-list.compo
 import {ProductEditComponent} from "./components/product-edit/product-edit.component";
 import {LoginComponent} from "./components/login/login.component";
 import {AuthGuard} from "./services/auth.guard";
+import {AccessGuard} from "./services/access.guard";
 
 export const appRoutes : Routes = [
   // { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    canDeactivate: [AccessGuard]
+  },
   {
     path: 'products',
     component: ProductListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'product/:id',
