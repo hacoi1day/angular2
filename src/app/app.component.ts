@@ -16,6 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public title: string;
   public complete: boolean;
 
+  public todo: Todo = null;
+
   constructor(
     private todoService: TodoService
   ) {
@@ -40,6 +42,39 @@ export class AppComponent implements OnInit, OnDestroy {
     let todo = new Todo(this.title, this.complete);
     this.todoService.addTodo(todo).subscribe(res => {
       this.todos.push(res);
+    }, err => {
+      this.todoService.handleError(err);
+    })
+  }
+
+  onEditTodo(todo: Todo): void {
+    this.todo = {...todo};
+  }
+
+  onUpdateTodo(): void {
+    this.todoService.updateTodo(this.todo).subscribe(res => {
+      this.todo = null;
+      let idx = this.getIndex(res.id);
+      this.todos[idx] = res;
+    }, err => {
+      this.todoService.handleError(err);
+    })
+  }
+
+  getIndex(id: number): number {
+    let idx = 0;
+    this.todos.forEach((item, index) => {
+      if (item.id == id) {
+        idx = index;
+        return false;
+      }
+    });
+    return idx;
+  }
+
+  onDeleteTodo(id: number): void {
+    this.todoService.deleteTodo(id).subscribe(res => {
+      this.todos = this.todos.filter(item => item.id != id);
     }, err => {
       this.todoService.handleError(err);
     })

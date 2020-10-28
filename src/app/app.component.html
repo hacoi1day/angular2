@@ -7,6 +7,7 @@
           <th>ID</th>
           <th>Title</th>
           <th>Complete</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -15,11 +16,15 @@
             <td>{{ i+1 }}</td>
             <td>{{ todo.title }}</td>
             <td>{{ todo.complete ? "Completed" : "In Process" }}</td>
+            <td>
+              <button class="btn btn-success" (click)="onEditTodo(todo)">Edit</button>
+              <button class="btn btn-danger" (click)="onDeleteTodo(todo.id)">Delete</button>
+            </td>
           </tr>
         </ng-container>
         <ng-template #noTodo>
           <tr>
-            <td colspan="3" class="text-center">
+            <td colspan="4" class="text-center">
               Không có dữ liệu
             </td>
           </tr>
@@ -29,7 +34,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
+      <legend>ADD TODO</legend>
       <form>
         <div class="form-group">
           <label for="title">Title</label>
@@ -45,6 +51,26 @@
         </div>
         <div class="form-group">
           <button class="btn btn-primary" (click)="onAddTodo()">Save</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-6" *ngIf="todo">
+      <legend>EDIT TODO</legend>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" name="title" placeholder="Title" [(ngModel)]="todo.title">
+        </div>
+        <div class="form-group">
+          <label for="complete">Complete</label>
+          <select name="complete" class="form-control" [(ngModel)]="todo.complete">
+            <option disabled selected>Select Status</option>
+            <option value="true">Completed</option>
+            <option value="false">In Process</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" (click)="onUpdateTodo()">Update</button>
         </div>
       </form>
     </div>
