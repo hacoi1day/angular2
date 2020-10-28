@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h4>Add Course</h4>
+    <button class="btn btn-primary" routerLink="/courses">Back</button>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Name" [(ngModel)]="name">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          name="description"
+          placeholder="Description"
+          [(ngModel)]="description"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Fee</label>
+        <input type="number" class="form-control" name="fee" placeholder="Fee" [(ngModel)]="fee">
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-success"
+          (click)="onAdd()"
+          #buttonSubmit
+        >Add</button>
+      </div>
+    </form>
+  </div>
+</div>

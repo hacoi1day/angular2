@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h4>Edit Course</h4>
+    <button class="btn btn-primary" routerLink="/courses">Back</button>
+  </div>
+  <div class="card-body">
+    <ng-container *ngIf="course">
+      <form>
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            placeholder="Name"
+            [(ngModel)]="course.name"
+          >
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea
+            type="text"
+            class="form-control"
+            name="description"
+            placeholder="Description"
+            [(ngModel)]="course.description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label>Fee</label>
+          <input
+            type="number"
+            class="form-control"
+            name="fee"
+            placeholder="Fee"
+            [(ngModel)]="course.fee"
+          >
+        </div>
+        <div class="form-group">
+          <button
+            class="btn btn-success"
+            (click)="onEdit($event);"
+            #buttonEdit
+          >Edit</button>
+        </div>
+      </form>
+    </ng-container>
+
+  </div>
+</div>

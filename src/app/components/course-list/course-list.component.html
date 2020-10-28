@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h4>Course Management</h4>
+    <button class="btn btn-primary" routerLink="/courses/add">Add</button>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th width="10%">#</th>
+        <th width="30%">Name</th>
+        <th width="30%">Description</th>
+        <th width="10%">Fee</th>
+        <th width="20%">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngIf="courses.length > 0; else noCourse">
+        <tr *ngFor="let course of courses; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ course.name }}</td>
+          <td>{{ course.description }}</td>
+          <td>{{ course.fee != 0 ? (course.fee | currency:'USD') : 'Free' }}</td>
+          <td>
+            <button class="btn btn-primary" routerLink="/courses/{{ course.id }}/edit">Edit</button>
+            <button class="btn btn-danger" (click)="onDelete(course.id)">Delete</button>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #noCourse>
+        <td colspan="5">
+          No Courses
+        </td>
+      </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>
